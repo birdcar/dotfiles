@@ -1,0 +1,11 @@
+#!/usr/bin/env zsh
+# Set up pyenv, pip, and system packages
+
+# shellcheck source=lib/globals
+source "$HOME/.files/lib/globals"
+# shellcheck source=lib/functions
+source "$DOTFILES_ROOT/lib/functions"
+
+script/setup/pyenv
+script/setup/pip
+gpip install --upgrade --force-reinstall -r "$DOTFILES_ROOT/data/python-global.txt"

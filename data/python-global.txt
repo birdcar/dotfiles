@@ -1,0 +1,14 @@
+bandit
+black
+flake8
+gitgud
+ipython
+isort
+jedi
+jupyterlab
+mypy
+pip
+pylint
+requests
+tox
+twine

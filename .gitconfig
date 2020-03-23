@@ -1,0 +1,100 @@
+[hub]
+	protocol = https
+
+[credential]
+	helper = osxkeychain
+
+[core]
+	excludesfile = ~/.gitignore-global
+	whitespace = trailing-space,space-before-tab
+	pager = "diff-so-fancy | less --tabs=1,5 -R"
+	autocrlf = input
+	whitespace = fix,-indent-with-non-tab,trailing-space,cr-at-eol
+	editor = code --wait
+
+[user]
+	name = Nick Cannariato
+	email = 434063+nickcannariato@users.noreply.github.com
+	signingkey = 2F8A8F4712AF2A3C
+
+[color]
+	branch = always
+	diff = always
+	grep = always
+	interactive = always
+	pager = true
+	showbranch = auto
+	status = auto
+	ui = always
+
+[color "interactive"]
+	error = red bold
+
+[color "branch"]
+	current = yellow reverse
+	local = yellow
+	remote = green
+
+[color "diff"]
+	meta = yellow
+	frag = magenta
+	old = red
+	new = green
+	whitespace = white reverse
+
+[color "status"]
+	added = yellow
+	changed = green
+	untracked = cyan
+	branch = magenta
+
+[apply]
+	whitespace = fix
+
+[github]
+	user = nickcannariato
+	token = !security find-internet-password -a nickcannariato -s github.com -w
+
+[push]
+	default = current
+
+[git-up "bundler"]
+	check = true
+	autoinstall = true
+
+[filter "media"]
+	required = true
+	clean = git media clean %f
+	smudge = git media smudge %f
+
+[filter "lfs"]
+	required = true
+	clean = git-lfs clean -- %f
+	smudge = git-lfs smudge -- %f
+	process = git-lfs filter-process
+
+[branch "master"]
+	remote = origin
+	merge = refs/heads/master
+
+[color "diff-highlight"]
+	oldHighlight = red bold 52
+	newNormal = green bold
+	newHighlight = green bold 22
+	oldNormal = red bold
+
+[commit]
+	gpgsign = true
+
+[gpg]
+	program = gpg
+
+[url "https://github.com"]
+	insteadOf = git://github.com
+
+[diff]
+	tool = default-difftool
+
+[difftool "default-difftool"]
+	cmd = code --wait --diff $LOCAL $REMOTE
+

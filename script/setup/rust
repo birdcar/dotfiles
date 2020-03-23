@@ -1,0 +1,13 @@
+#!/usr/bin/env zsh
+# Configure rustup, rust, and cargo
+
+# shellcheck source=lib/globals
+source "$HOME/.files/lib/globals"
+source "$DOTFILES_ROOT/lib/functions"
+
+if command -v rustup-init >/dev/null 2>&1; then
+  rustup-init -y
+else
+  brew install rustup-init
+  rustup-init -y
+fi

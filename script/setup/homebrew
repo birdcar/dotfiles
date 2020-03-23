@@ -1,0 +1,6 @@
+#!/usr/bin/env zsh
+# Set up Homebrew
+
+if ! brew bundle check --global --verbose; then
+  brew bundle install --global --verbose
+fi

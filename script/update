@@ -1,0 +1,39 @@
+#!/usr/bin/env zsh
+# Update all installed dependencies
+# Usage: up
+
+set -e
+
+# shellcheck source=lib/globals
+source "/$HOME/.files/lib/globals"
+
+# shellcheck source=lib/functions
+source "/$DOTFILES_ROOT/lib/functions"
+
+pushd $DOTFILES_ROOT
+
+script/title "Updating Homebrew..."
+brew update
+brew upgrade
+
+script/title "Updating App Store apps"
+mas upgrade
+
+script/title "Updating to the latest Node LTS "
+script/setup/node
+
+script/title "Updating Python(s)"
+pyenv global system
+script/setup/python
+
+script/title "Updating Ruby"
+script/setup/ruby
+
+script/title "Updating Rust"
+script/setup/rust
+
+script/title "Updating Oh My ZSH"
+/bin/sh "$ZSH/tools/upgrade.sh"
+
+
+popd

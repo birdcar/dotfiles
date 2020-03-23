@@ -1,0 +1,22 @@
+#!/usr/bin/env zsh
+# Setup Oh my ZSH
+
+# shellcheck source=lib/globals
+source "/$HOME/.files/lib/globals"
+
+# shellcheck source=lib/functions
+source "/$DOTFILES_ROOT/lib/functions"
+
+if [ ! -d "~/.oh-my-zsh" ]; then
+  sh -c "$(curl -fsSL https://raw.githubusercontent.com/ohmyzsh/ohmyzsh/master/tools/install.sh)" --unattended
+
+  # Remove default .zshrc file so we can link_safe our own
+  rm -f ~/.zshrc
+  link_safe .zshrc
+
+  # Set ZSH as the default shell
+  command -v zsh | sudo -n tee -a /etc/shells
+  sudo -n chsh -s "$(command -v zsh)" "${USER}"
+  SHELL=$(which zsh)
+  export SHELL
+fi

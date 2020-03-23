@@ -1,0 +1,13 @@
+{
+  "files.associations": {
+    "**/lib/*": "shellscript",
+    "**/script/{*,**/*}": "shellscript",
+    "**/script/setup/{npm,background-apps}": "python"
+  },
+  "python.linting.banditEnabled": false,
+  "python.linting.mypyEnabled": false,
+  "python.linting.flake8Enabled": false,
+  "[python]": {
+    "editor.formatOnSave": false
+  }
+}

@@ -1,0 +1,27 @@
+#!/usr/bin/env zsh
+
+set -e
+
+# Bootstrap dotfiles
+if [[ ! -d "$HOME/.files" ]]; then
+  git clone https://github.com/nickcannariato/dotfiles .files
+fi
+
+# shellcheck source=lib/globals
+source "$HOME/.files/lib/globals"
+
+# shellcheck source=lib/functions
+source "$DOTFILES_ROOT/lib/functions"
+
+# Proper order to run setup scripts in
+setups=(symlinks token homebrew dock python ruby node rust background-apps postgres zsh mackup)
+
+for setup in "${setups[@]}"; do
+  script/title "Setting up $setup"
+  "script/setup/$setup"
+done
+
+# Remove strap.sh, which contains tokens
+rm -f "$HOME/Downloads/strap.sh"
+
+script/title "Fin."

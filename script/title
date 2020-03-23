@@ -1,0 +1,9 @@
+#!/usr/bin/env zsh
+# Outputs a formatted title
+# Usage: script/title title-to-output
+
+echo ""
+echo "-------------------------------"
+echo "$1"
+echo "-------------------------------"
+echo ""

@@ -1,0 +1,91 @@
+#!/usr/bin/env zsh
+# Functions shared between script/setup and script/update
+
+# Generate .gitignore files
+function gi() {
+  result=$(curl "http://www.gitignore.io/api/$1" 2>/dev/null)
+
+  if [[ $result =~ ERROR ]]; then
+    echo "Query '$1' has no match. See a lis of posible queries with 'gi list'"
+  elif [[ $1 = list ]]; then
+    echo "$result"
+  else
+    if [[ -f .gitignore ]]; then
+      result=`echo "$result" | grep -v "# Created by http://www.gitignore.io"`
+      echo ".gitignore already exists, appending"
+      echo "$result" >> .gitignore
+    else
+      echo "$result" > .gitignore
+    fi
+  fi
+}
+
+# Custom global pip install
+function gpip() {
+  PIP_REQUIRE_VIRTUALENV="" pip "$@"
+}
+
+# Autoload `.nvmrc` where one exists
+autoload -U add-zsh-hook
+function load-nvmrc() {
+  local node_version="$(nvm version)"
+  local nvmrc_path="$(nvm_find_nvmrc)"
+
+  if [ -n "$nvmrc_path" ]; then
+    local nvmrc_node_version=$(nvm version "$(cat "${nvmrc_path}")")
+
+    if [ "$nvmrc_node_version" = "N/A" ]; then
+      nvm install
+    elif [ "$nvmrc_node_version" != "$node_version" ]; then
+      nvm use
+    fi
+  elif [ "$node_version" != "$(nvm version default)" ]; then
+    echo "Reverting to nvm default version"
+    nvm use default
+  fi
+}
+
+if [[ -d "$HOME/.nvm" ]]; then
+  add-zsh-hook chpwd load-nvmrc
+  load-nvmrc
+fi
+
+# Link a file if it doesn't already exist
+# SOURCE_DIR defaults to $HOME
+# DESTINATION_DIR defaults to $DOTFILES_ROOT
+# Usage: link_safe RELATIVE_PATH [SOURCE_DIR] [DESTINATION_DIR]
+function link_safe() {
+  RELATIVE_PATH=$1
+  SOURCE_DIR=${2:-$HOME}
+  DESTINATION_DIR=${3:-$DOTFILES_ROOT}
+  SOURCE_PATH="$SOURCE_DIR/$RELATIVE_PATH"
+  DESTINATION_PATH="$DESTINATION_DIR/$RELATIVE_PATH"
+
+  if [[ ! -f "$SOURCE_PATH" ]] || [[ $(ls -l "$SOURCE_PATH" | awk '{print $11}') != "$DESTINATION_PATH" ]]; then
+    echo "Linking $SOURCE_PATH to $DESTINATION_PATH"
+    rm -f "$SOURCE_PATH"
+    ln -sf "$DESTINATION_PATH" "$SOURCE_PATH"
+  fi
+}
+
+function mkdir_safe() {
+  if [[ ! -d "$HOME/$1" ]]; then
+    echo "Creating $1 directory"
+    mkdir -p "$HOME/$1"
+  fi
+}
+
+function latest_ruby() {
+  latest_ruby=$(rbenv install -l | grep -v - | tail -1 )
+  echo "$latest_ruby" | tr -d '[:space:]'
+}
+
+function latest_py3() {
+  latest_python=$(pyenv install -l | grep -v - | grep -v 'a' | grep -v 'rc' | tail -1 )
+  echo "$latest_python" | tr -d '[:space:]'
+}
+
+function latest_py2() {
+  py2=$(pyenv install -l | grep -v - | grep '2.7.' | tail -1 )
+  echo "$py2" | tr -d '[:space:]'
+}

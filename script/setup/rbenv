@@ -1,0 +1,19 @@
+#!/usr/bin/env zsh
+# Setup up rbenv
+
+# shellcheck source=lib/globals
+source "$HOME/.files/lib/globals"
+source "$DOTFILES_ROOT/lib/functions"
+
+command -v rbenv >/dev/null 2>&1 || { echo >&2 brew install rbenv; eval "$(rbenv init -)"; }
+
+link_safe default_gems $(rbenv root)
+
+echo "Latest Ruby version is $(latest_ruby)"
+
+if [ "$(rbenv global)" = "system" ]; then
+  brew install ruby-build
+  rbenv install "$(latest_ruby)"
+  rbenv global "$(latest_ruby)"
+  rbenv rehash
+fi

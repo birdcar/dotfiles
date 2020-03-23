@@ -1,0 +1,42 @@
+#!/usr/bin/env zsh
+
+########## META ##########
+export DOTFILES_ROOT=$HOME/.files
+
+########## EDITOR ##########
+if [[ -n $SSH_CONNECTION ]]; then
+  export EDITOR='vim'
+else
+  export EDITOR='code --reuse-window'
+fi
+
+########## HOMEBREW ##########
+if brew command command-not-found-init >/dev/null 2>&1; then eval "$(brew command-not-found-init)"; fi
+
+########## NODE ##########
+export NVM_DIR="$HOME/.nvm"
+[ -s "/usr/local/opt/nvm/nvm.sh" ] && . "/usr/local/opt/nvm/nvm.sh"  # This loads nvm
+[ -s "/usr/local/opt/nvm/etc/bash_completion.d/nvm" ] && . "/usr/local/opt/nvm/etc/bash_completion.d/nvm"  # This loads nvm bash_completion
+
+########## PYTHON ##########
+# Disable pyenv virtualenv prompt
+export PYENV_VIRTUALENV_DISABLE_PROMPT=1
+
+# Enable pyenv, pyenv virtualenv, & pyenv virtualenv wrapper
+if command -v pyenv 1>/dev/null 2>&1; then
+  eval "$(pyenv init -)"
+  if which pyenv-virtualenv-init > /dev/null; then eval "$(pyenv virtualenv-init -)"; fi
+fi
+
+# Enable Poetry
+export PATH="$HOME/.poetry/bin:$PATH"
+
+# Disable global `pip install`
+export PIP_REQUIRE_VIRTUALENV=true
+
+########## RUBY ##########
+eval "$(rbenv init -)"
+
+########## RUST ##########
+export PATH="$HOME/.cargo/bin:$PATH"
+
