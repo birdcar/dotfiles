@@ -14,7 +14,7 @@ source "$HOME/.files/lib/globals"
 source "$DOTFILES_ROOT/lib/functions"
 
 # Proper order to run setup scripts in
-setups=(symlinks token homebrew dock python ruby node rust background-apps postgres zsh mackup)
+setups=(symlinks token homebrew dock code python ruby node rust postgres background-apps zsh)
 
 for setup in "${setups[@]}"; do
   script/title "Setting up $setup"

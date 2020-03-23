@@ -13,7 +13,7 @@ link_safe .Brewfile
 link_safe .mongorc.js
 link_safe .mackup.cfg
 
-mkdir_safe ".mjolnir"
+mkdir_safe ".mjolnir/"
 link_safe .mjolnir/init.lua
 
 mkdir_safe "Library/LaunchAgents/"
@@ -23,13 +23,10 @@ link_safe Library/LaunchAgents/com.cannariato.nick.update.plist
 mkdir_safe "Library/Spelling/"
 link_safe Library/Spelling/LocalDictionary
 
-mkdir_safe Code/python/django
-mkdir_safe Code/python/flask
-mkdir_safe Code/python/fastapi
-mkdir_safe Code/python/click
-mkdir_safe Code/python/oscontrib
-mkdir_safe Code/rust/oscontrib
-mkdir_safe Code/node/oscontrib
+mkdir_safe "Library/Application Support/Code/User/"
+link_safe Library/Application\ Support/Code/User/settings.json
+link_safe Library/Application\ Support/Code/User/keybindings.json
+
 
 mkdir_safe .ssh
 link_safe .ssh/config

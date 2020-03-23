@@ -1,0 +1,7 @@
+// Place your key bindings in this file to override the defaults
+[
+  {
+    "key": "cmd+n", // Change this to ctrl+n on a Windows machine
+    "command": "extension.advancedNewFile"
+  }
+]
