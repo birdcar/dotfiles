@@ -27,8 +27,27 @@ mkdir_safe "Library/Application Support/Code/User/"
 link_safe Library/Application\ Support/Code/User/settings.json
 link_safe Library/Application\ Support/Code/User/keybindings.json
 
+python=(django, flask, fastapi, click, scripts, learning, oscontrib)
+for folder in "${python[@]}"; do
+  mkdir_safe "Code/python/${folder}"
+done
 
-mkdir_safe .ssh
+node=(vue, react, express, oclif, scripts, learning, oscontrib)
+for folder in "${node[@]}"; do
+  mkdir_safe "Code/node/${folder}"
+done
+
+rust=(scripts, learning, oscontrib)
+for folder in "${rust[@]}"; do
+  mkdir_safe "Code/rust/${folder}"
+done
+
+ruby=(rails, sinatra, jekyll, scripts, learning, oscontrib)
+for folder in "${ruby[@]}"; do
+  mkdir_safe "Code/ruby/${folder}"
+done
+
+mkdir_safe ".ssh/"
 link_safe .ssh/config
 
 echo "Symlinks set."
