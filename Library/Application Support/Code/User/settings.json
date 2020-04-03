@@ -161,6 +161,7 @@
     "no-method-argument"
   ],
   "python.autoComplete.addBrackets": false,
+  "python.condaPath": "conda",
   "python.dataScience.sendSelectionToInteractiveWindow": true,
   "python.formatting.provider": "black",
   "python.jediEnabled": false,
