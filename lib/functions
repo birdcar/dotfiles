@@ -89,3 +89,9 @@ function latest_py2() {
   py2=$(pyenv install -l | grep -v - | grep '2.7.' | tail -1 )
   echo "$py2" | tr -d '[:space:]'
 }
+
+function pyenv-install() {
+  CFLAGS="-I$(brew --prefix openssl)/include -I$(brew --prefix readline)/include -I$(xcrun --show-sdk-path)/usr/include" \
+  LDFLAGS="-L$(brew --prefix openssl)/lib -L$(brew --prefix readline)/lib" \
+  pyenv install $@
+}

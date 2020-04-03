@@ -12,7 +12,7 @@ echo "Latest Python version is $(latest_py3)"
 if [ "$(pyenv global)" = "system" ]; then
   pyenv install "$(latest_py3)"
   pyenv install "$(latest_py2)"
-  pyenv global "$(latest_py2)" "$(latest_py2)"
+  pyenv global "$(latest_py3)" "$(latest_py2)"
   pyenv rehash
 fi
 
