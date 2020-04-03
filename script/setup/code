@@ -5,6 +5,7 @@ from pathlib import Path
 import subprocess as sub
 import sys
 from typing import List
+import warnings
 
 
 def get_extensions(package_file_path: Path) -> List[str]:
@@ -24,10 +25,16 @@ def vscode_ext_install(extension: str):
     :param package: The name of an npm installable package
     """
     try:
-        sub.run(["code", "--install-extension", extension, "--force"], check=True, encoding='utf-8')
+        sub.run(
+            ["code", "--install-extension", extension, "--force"],
+            check=True,
+            encoding="utf-8",
+        )
     except sub.CalledProcessError:
-        print(f"Problem encountered when installing {extension}!\n",
-              "Review the output above or manually debug the issue later")
+        warnings.warn(
+            f"Problem encountered when installing {extension}!\n"
+            + "Review the output above to manually debug the issue"
+        )
         sys.exit(1)
 
 
@@ -45,14 +52,15 @@ if __name__ == "__main__":
     Potentially some of the above need to be done in the symlinks script
     """
     if os.getenv("DOTFILES_ROOT"):
-        DOTFILES_ROOT = Path(os.getenv("DOTFILES_ROOT"))
+        DOTFILES_ROOT = Path(os.environ["DOTFILES_ROOT"])
 
     if not DOTFILES_ROOT.exists():
-        print(f"the DOTFILES_ROOT path ({DOTFILES_ROOT}) appears to be missing!")
+        warnings.warn(
+            f"the DOTFILES_ROOT path ({DOTFILES_ROOT}) appears to be missing!"
+        )
         sys.exit(1)
 
-    extensions = get_extensions(DOTFILES_ROOT/'data'/'vscode-ext.txt')
+    extensions = get_extensions(DOTFILES_ROOT / "data" / "vscode-ext.txt")
 
     for extension in extensions:
-        print(extension)
         vscode_ext_install(extension)
