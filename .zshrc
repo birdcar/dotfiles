@@ -50,7 +50,3 @@ source $DOTFILES_ROOT/lib/functions
 
 # Load prompt
 source $DOTFILES_ROOT/lib/prompt
-
-  # Set Spaceship ZSH as a prompt
-  autoload -U promptinit; promptinit
-  prompt spaceship
