@@ -49,6 +49,7 @@
   "git.inputValidation": "always",
   "git.inputValidationSubjectLength": 50,
   "git.showPushSuccessNotification": true,
+  "git.suggestSmartCommit": false,
   "githubIssues.createIssueTriggers": ["@TODO"],
   "githubPullRequests.defaultDeletionMethod.selectLocalBranch": true,
   "githubPullRequests.defaultDeletionMethod.selectRemote": true,
