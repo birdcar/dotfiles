@@ -186,6 +186,7 @@
   "scss.lint.zeroUnits": "warning",
   "terminal.integrated.cursorBlinking": true,
   "terminal.integrated.fontSize": 16,
+  "terminal.integrated.inheritEnv": false,
   "terminal.integrated.shellArgs.osx": [],
   "terminal.integrated.splitCwd": "workspaceRoot",
   "todohighlight.exclude": [
