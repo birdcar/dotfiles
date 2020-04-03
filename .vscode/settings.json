@@ -2,6 +2,7 @@
   "files.associations": {
     "**/lib/*": "shellscript",
     "**/script/{*,**/*}": "shellscript",
+    "**/script/{*.py,**/*.py}": "python",
     "**/script/setup/{npm,background-apps,code}": "python"
   },
   "python.linting.banditEnabled": false,
