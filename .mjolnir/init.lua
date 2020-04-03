@@ -29,7 +29,7 @@ grid.GRIDHEIGHT = 6
 -- to a certain grid size.
 local gridset = function(x, y, w, h)
     return function()
-        cur_window = window.focusedwindow()
+        local cur_window = window.focusedwindow()
         grid.set(
             cur_window,
             {x=x, y=y, w=w, h=h},
