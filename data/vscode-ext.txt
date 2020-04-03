@@ -44,7 +44,9 @@ samuelcolvin.jinjahtml
 sdras.night-owl
 sdras.vue-vscode-extensionpack
 sdras.vue-vscode-snippets
+sumneko.lua
 tombonnike.vscode-status-bar-format-toggle
+vtrois.gitmoji-vscode
 wayou.vscode-todo-highlight
 wingrunr21.vscode-ruby
 wmaurer.vscode-jumpy

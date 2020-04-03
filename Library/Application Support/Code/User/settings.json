@@ -71,6 +71,8 @@
   ],
   "githubPullRequests.showInSCM": true,
   "githubPullRequests.telemetry.enabled": true,
+  "gitmoji.additionalEmojis": [],
+  "gitmoji.outputType": "code",
   "javascript.updateImportsOnFileMove.enabled": "always",
   "liveshare.audio.startCallOnShare": true,
   "markdown.preview.fontSize": 16,
