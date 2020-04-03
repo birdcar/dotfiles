@@ -19,9 +19,7 @@ export NVM_DIR="$HOME/.nvm"
 [ -s "/usr/local/opt/nvm/etc/bash_completion.d/nvm" ] && . "/usr/local/opt/nvm/etc/bash_completion.d/nvm"  # This loads nvm bash_completion
 
 ########## PYTHON ##########
-
 # Initialize Conda
-# >>> conda initialize >>>
 # !! Contents within this block are managed by 'conda init' !!
 __conda_setup="$('/usr/local/Caskroom/miniconda/base/bin/conda' 'shell.bash' 'hook' 2> /dev/null)"
 if [ $? -eq 0 ]; then
@@ -34,15 +32,10 @@ else
     fi
 fi
 unset __conda_setup
-# <<< conda initialize <<<
 
-# Disable pyenv virtualenv prompt
-export PYENV_VIRTUALENV_DISABLE_PROMPT=1
-
-# Enable pyenv, pyenv virtualenv, & pyenv virtualenv wrapper
+# Enable pyenv
 if command -v pyenv 1>/dev/null 2>&1; then
   eval "$(pyenv init -)"
-  if which pyenv-virtualenv-init > /dev/null; then eval "$(pyenv virtualenv-init -)"; fi
 fi
 
 # Enable Poetry
