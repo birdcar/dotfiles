@@ -11,7 +11,7 @@ link_safe .gitconfig
 link_safe .gitignore-global
 link_safe .Brewfile
 link_safe .mongorc.js
-link_safe .mackup.cfg
+link_safe .osx.yml
 
 mkdir_safe ".mjolnir/"
 link_safe .mjolnir/init.lua

@@ -21,6 +21,12 @@ for setup in "${setups[@]}"; do
   "script/setup/$setup"
 done
 
+# create .hushlogin file in home directory
+touch "$HOME/.hushlogin"
+
+# update macOS plist files with my preferences
+sudo plister "$HOME/.osx.yml"
+
 # Remove strap.sh, which contains tokens
 rm -f "$HOME/Downloads/strap.sh"
 
