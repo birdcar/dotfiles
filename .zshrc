@@ -12,7 +12,6 @@ plugins=(
   colorize
   command-not-found
   cp
-  dotenv
   django
   docker
   extract

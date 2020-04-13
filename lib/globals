@@ -2,6 +2,7 @@
 
 ########## META ##########
 export DOTFILES_ROOT=$HOME/.files
+export ZSH_DOTENV_PROMPT=false
 
 ########## EDITOR ##########
 if [[ -n $SSH_CONNECTION ]]; then
