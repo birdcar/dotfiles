@@ -1,3 +1,6 @@
 spaceship-prompt
 @vue/cli
 @gridsome/cli
+tldr
+spoof
+fkill
