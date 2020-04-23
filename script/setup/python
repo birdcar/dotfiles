@@ -10,5 +10,4 @@ source "$DOTFILES_ROOT/lib/functions"
 conda config --set auto_activate_base false
 
 script/setup/pyenv
-script/setup/pip
 gpip install --upgrade --force-reinstall -r "$DOTFILES_ROOT/data/python-global.txt"
