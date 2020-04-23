@@ -24,14 +24,14 @@ brew "git"
 brew "htop"
 # CLI for ImageOptim, ImageAlpha and JPEGmini
 brew "imageoptim-cli"
-# Cryptography and SSL/TLS Toolkit
-brew "openssl@1.1"
 # Lightweight and flexible command-line JSON processor
 brew "jq"
 # Powerful, lightweight programming language
 brew "lua"
 # Package manager for the Lua programming language
 brew "luarocks"
+# Web and API based SMTP testing tool
+brew "mailhog", restart_service: true
 # Mac App Store command-line interface
 brew "mas"
 # Ambitious Vim-fork focused on extensibility and agility
