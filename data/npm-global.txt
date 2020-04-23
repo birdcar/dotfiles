@@ -1,6 +1,8 @@
-spaceship-prompt
 @vue/cli
 @gridsome/cli
 tldr
 spoof
-fkill
+fkill-cli
+alfred-fkill
+gitmoji-cli
+spaceship-prompt
