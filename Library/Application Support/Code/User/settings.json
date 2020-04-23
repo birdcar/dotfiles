@@ -191,7 +191,7 @@
   "terminal.integrated.cursorBlinking": true,
   "terminal.integrated.fontSize": 16,
   "terminal.integrated.inheritEnv": false,
-  "terminal.integrated.shellArgs.osx": [],
+  "terminal.integrated.shellArgs.osx": ["-l"],
   "terminal.integrated.splitCwd": "workspaceRoot",
   "todohighlight.exclude": [
     "**/node_modules/**",
