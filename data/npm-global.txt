@@ -5,4 +5,5 @@ spoof
 fkill-cli
 alfred-fkill
 gitmoji-cli
+add-gitignore
 spaceship-prompt

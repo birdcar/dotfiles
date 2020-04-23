@@ -1,25 +1,6 @@
 #!/usr/bin/env zsh
 # Functions shared between script/setup and script/update
 
-# Generate .gitignore files
-function gi() {
-  result=$(curl "http://www.gitignore.io/api/$1" 2>/dev/null)
-
-  if [[ $result =~ ERROR ]]; then
-    echo "Query '$1' has no match. See a lis of posible queries with 'gi list'"
-  elif [[ $1 = list ]]; then
-    echo "$result"
-  else
-    if [[ -f .gitignore ]]; then
-      result=`echo "$result" | grep -v "# Created by http://www.gitignore.io"`
-      echo ".gitignore already exists, appending"
-      echo "$result" >> .gitignore
-    else
-      echo "$result" > .gitignore
-    fi
-  fi
-}
-
 # Custom global pip install
 function gpip() {
   PIP_REQUIRE_VIRTUALENV="" pip "$@"

@@ -10,6 +10,7 @@ alias gl="git log --graph --pretty=format:'%Cred%h%Creset -%C(yellow)%d%Creset %
 alias gp="git push"
 alias gd="git diff"
 alias gb="git browse"
+alias gi="add-gitignore"
 alias reset="git reset HEAD --hard; git clean -f -d"
 alias clean="git branch --merged | grep -v '\*' | xargs -n 1 git branch -d"
 alias branches="git branch -v"
