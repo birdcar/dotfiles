@@ -134,7 +134,8 @@
     }
   ],
   "prettier.proseWrap": "always",
-  "prettier.singleQuote": true,
+  "prettier.singleQuote": false,
+  "prettier.vueIndentScriptAndStyle": true,
   "python.analysis.openFilesOnly": true,
   "python.analysis.diagnosticPublishDelay": 1000,
   "python.analysis.disabled": [],
@@ -216,7 +217,8 @@
     "static-query": "graphql",
     "page-query": "graphql"
   },
-  "vetur.validation.template": false,
+  "vetur.format.defaultFormatter.js": "prettier-eslint",
+  "vetur.validation.template": true,
   "workbench.activityBar.visible": true,
   "workbench.colorCustomizations": {
     "activityBar.background": "#000C1D",
@@ -243,11 +245,15 @@
   },
   "[javascript]": {
     "editor.wordWrap": "off",
-    "editor.defaultFormatter": "esbenp.prettier-vscode"
+    "editor.formatOnSave": true,
+    "editor.codeActionsOnSave": {
+      // For ESLint
+      "source.fixAll.eslint": true,
+    }
   },
   "[javascriptreact]": {
     "editor.wordWrap": "off",
-    "editor.defaultFormatter": "esbenp.prettier-vscode"
+    "editor.defaultFormatter": "esbenp.prettier-vscode",
   },
   "[json]": {
     "editor.defaultFormatter": "esbenp.prettier-vscode"
@@ -274,10 +280,7 @@
     "editor.tabSize": 2,
     "editor.wordWrap": "off"
   },
-  "[vue]": {
-    "editor.defaultFormatter": "octref.vetur"
-  },
   "[yaml]": {
     "editor.defaultFormatter": "redhat.vscode-yaml"
-  }
+  },
 }
