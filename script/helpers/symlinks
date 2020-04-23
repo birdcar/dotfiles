@@ -27,6 +27,9 @@ mkdir_safe "Library/Application Support/Code/User/"
 link_safe Library/Application\ Support/Code/User/settings.json
 link_safe Library/Application\ Support/Code/User/keybindings.json
 
+mkdir_safe "Library/Application Support/pypoetry/"
+link_safe Library/Application\ Support/pypoetry/config.toml
+
 python=(conda click django flask fastapi learning oscontrib packages scripts)
 for folder in "${python[@]}"; do
   mkdir_safe "Code/python/${folder}"

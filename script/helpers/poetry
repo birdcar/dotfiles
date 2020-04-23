@@ -1,0 +1,13 @@
+#!/usr/bin/env zsh
+# Setup up Poetry
+
+# shellcheck source=lib/globals
+source "$HOME/.dotfiles/lib/globals"
+source "$DOTFILES_ROOT/lib/functions"
+
+echo "Checking on Poetry installation"
+
+if [[ ! -e "$HOME/.poetry" ]]; then
+  echo "Poetry not found: Installing Poetry"
+  curl -sSL https://raw.githubusercontent.com/python-poetry/poetry/master/get-poetry.py | python
+fi

@@ -1,5 +1,5 @@
 #!/usr/bin/env zsh
-# Set up pyenv, pip, and system packages
+# Set up pyenv, poetry, pip, and system packages
 
 # shellcheck source=lib/globals
 source "$HOME/.dotfiles/lib/globals"
@@ -10,4 +10,5 @@ source "$DOTFILES_ROOT/lib/functions"
 conda config --set auto_activate_base false
 
 script/helpers/pyenv
+script/helpers/poetry
 gpip install --upgrade --force-reinstall -r "$DOTFILES_ROOT/data/python-global.txt"
