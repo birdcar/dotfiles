@@ -1,4 +1,0 @@
-#!/usr/bin/env zsh
-# Link Google Drive stored config
-
-mackup restore
