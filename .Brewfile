@@ -10,6 +10,8 @@ tap "homebrew/services"
 tap "mongodb/brew"
 # Cross-platform make
 brew "cmake"
+# Cryptography and SSL/TLS Toolkit
+brew "openssl@1.1"
 # Good-lookin' diffs with diff-highlight and more
 brew "diff-so-fancy"
 # Tool for managing dock items
