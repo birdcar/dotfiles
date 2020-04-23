@@ -1,6 +1,6 @@
 #!/usr/bin/env zsh
 # Set up Rbenv, bundler, and system gems
 
-script/setup/rbenv
-script/setup/bundler
+script/helpers/rbenv
+script/helpers/bundler
 gem update --system

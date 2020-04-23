@@ -9,5 +9,5 @@ source "$DOTFILES_ROOT/lib/functions"
 # Prevent Conda's base environment from activating by default
 conda config --set auto_activate_base false
 
-script/setup/pyenv
+script/helpers/pyenv
 gpip install --upgrade --force-reinstall -r "$DOTFILES_ROOT/data/python-global.txt"
