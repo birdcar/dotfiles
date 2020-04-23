@@ -3,12 +3,12 @@
 set -e
 
 # Bootstrap dotfiles
-if [[ ! -d "$HOME/.files" ]]; then
-  git clone https://github.com/nickcannariato/dotfiles .files
+if [[ ! -d "$HOME/.dotfiles" ]]; then
+  git clone https://github.com/nickcannariato/dotfiles .dotfiles
 fi
 
 # shellcheck source=lib/globals
-source "$HOME/.files/lib/globals"
+source "$HOME/.dotfiles/lib/globals"
 
 # shellcheck source=lib/functions
 source "$DOTFILES_ROOT/lib/functions"
@@ -17,8 +17,8 @@ source "$DOTFILES_ROOT/lib/functions"
 setups=(symlinks token homebrew dock code python ruby node rust postgres background-apps zsh)
 
 for helper in "${setups[@]}"; do
-  script/title "Setting up $helper"
-  "script/helpers/$helper"
+  "$DOTFILES_ROOT/script/title" "Setting up $helper"
+  "$DOTFILES_ROOT/script/helpers/$helper"
 done
 
 # create .hushlogin file in home directory

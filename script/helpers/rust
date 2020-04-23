@@ -2,7 +2,7 @@
 # Configure rustup, rust, and cargo
 
 # shellcheck source=lib/globals
-source "$HOME/.files/lib/globals"
+source "$HOME/.dotfiles/lib/globals"
 source "$DOTFILES_ROOT/lib/functions"
 
 if command -v rustup-init >/dev/null 2>&1; then

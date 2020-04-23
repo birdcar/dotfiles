@@ -39,7 +39,7 @@ plugins=(
 source $ZSH/oh-my-zsh.sh
 
 # Load Globals
-source $HOME/.files/lib/globals
+source $HOME/.dotfiles/lib/globals
 
 # Load Aliases
 source $DOTFILES_ROOT/lib/aliases
@@ -49,3 +49,7 @@ source $DOTFILES_ROOT/lib/functions
 
 # Load prompt
 source $DOTFILES_ROOT/lib/prompt
+
+  # Set Spaceship ZSH as a prompt
+  autoload -U promptinit; promptinit
+  prompt spaceship

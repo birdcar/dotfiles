@@ -5,7 +5,7 @@
 		<key>Label</key>
 		<string>com.cannariato.nick.update</string>
 		<key>Program</key>
-		<string>/Users/nickcannariato/.files/script/update</string>
+		<string>/Users/nickcannariato/.dotfiles/script/update</string>
 		<key>StartCalendarInterval</key>
 		<dict>
 			<key>Hour</key>

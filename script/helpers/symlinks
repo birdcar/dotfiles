@@ -1,8 +1,8 @@
 #!/usr/bin/env zsh
-# Setups up symlinks from .files to home directory
+# Setups up symlinks from .dotfiles to home directory
 
 # shellcheck source=lib/globals
-source "/$HOME/.files/lib/globals"
+source "/$HOME/.dotfiles/lib/globals"
 
 # shellcheck source=lib/functions
 source "/$DOTFILES_ROOT/lib/functions"

@@ -32,9 +32,6 @@ if [[ -d "$HOME/.nvm" ]]; then
 fi
 
 # Link a file if it doesn't already exist
-# SOURCE_DIR defaults to $HOME
-# DESTINATION_DIR defaults to $DOTFILES_ROOT
-# Usage: link_safe RELATIVE_PATH [SOURCE_DIR] [DESTINATION_DIR]
 function link_safe() {
   RELATIVE_PATH=$1
   SOURCE_DIR=${2:-$HOME}

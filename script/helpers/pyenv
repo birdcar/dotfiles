@@ -2,7 +2,7 @@
 # Setup up pyenv
 
 # shellcheck source=lib/globals
-source "$HOME/.files/lib/globals"
+source "$HOME/.dotfiles/lib/globals"
 source "$DOTFILES_ROOT/lib/functions"
 
 command -v pyenv >/dev/null 2>&1 || { echo >&2 brew install pyenv; eval "$(pyenv init -)"; }

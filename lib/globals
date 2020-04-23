@@ -1,7 +1,7 @@
 #!/usr/bin/env zsh
 
 ########## META ##########
-export DOTFILES_ROOT=$HOME/.files
+export DOTFILES_ROOT=$HOME/.dotfiles
 export ZSH_DOTENV_PROMPT=false
 
 ########## EDITOR ##########
