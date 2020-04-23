@@ -12,6 +12,8 @@ tap "mongodb/brew"
 brew "cmake"
 # Cryptography and SSL/TLS Toolkit
 brew "openssl@1.1"
+# Utility that creates projects from templates
+brew "cookiecutter"
 # Good-lookin' diffs with diff-highlight and more
 brew "diff-so-fancy"
 # Tool for managing dock items
