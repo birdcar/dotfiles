@@ -20,19 +20,21 @@ export NVM_DIR="$HOME/.nvm"
 [ -s "/usr/local/opt/nvm/etc/bash_completion.d/nvm" ] && . "/usr/local/opt/nvm/etc/bash_completion.d/nvm"  # This loads nvm bash_completion
 
 ########## PYTHON ##########
-# Initialize Conda
-# !! Contents within this block are managed by 'conda init' !!
-__conda_setup="$('/usr/local/Caskroom/miniconda/base/bin/conda' 'shell.bash' 'hook' 2> /dev/null)"
-if [ $? -eq 0 ]; then
-    eval "$__conda_setup"
-else
-    if [ -f "/usr/local/Caskroom/miniconda/base/etc/profile.d/conda.sh" ]; then
-        . "/usr/local/Caskroom/miniconda/base/etc/profile.d/conda.sh"
-    else
-        export PATH="/usr/local/Caskroom/miniconda/base/bin:$PATH"
-    fi
+if command -v conda 1>/dev/null 2>&1; then
+  # Initialize Conda
+  # !! Contents within this block are managed by 'conda init' !!
+  __conda_setup="$('/usr/local/Caskroom/miniconda/base/bin/conda' 'shell.bash' 'hook' 2> /dev/null)"
+  if [ $? -eq 0 ]; then
+      eval "$__conda_setup"
+  else
+      if [ -f "/usr/local/Caskroom/miniconda/base/etc/profile.d/conda.sh" ]; then
+          . "/usr/local/Caskroom/miniconda/base/etc/profile.d/conda.sh"
+      else
+          export PATH="/usr/local/Caskroom/miniconda/base/bin:$PATH"
+      fi
+  fi
+  unset __conda_setup
 fi
-unset __conda_setup
 
 # Enable pyenv
 if command -v pyenv 1>/dev/null 2>&1; then
@@ -40,14 +42,17 @@ if command -v pyenv 1>/dev/null 2>&1; then
 fi
 
 # Enable Poetry
-export PATH="$HOME/.poetry/bin:$PATH"
+if [[ -d "$HOME/.poetry" ]]; then
+  export PATH="$HOME/.poetry/bin:$PATH"
+fi
 
 # Disable global `pip install`
 export PIP_REQUIRE_VIRTUALENV=true
 
 ########## RUBY ##########
-eval "$(rbenv init -)"
+if command -v rbenv 1>/dev/null 2>&1; then
+  eval "$(rbenv init -)"
+fi
 
 ########## RUST ##########
 export PATH="$HOME/.cargo/bin:$PATH"
-
