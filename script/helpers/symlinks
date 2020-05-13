@@ -12,6 +12,7 @@ link_safe .gitignore-global
 link_safe .Brewfile
 link_safe .mongorc.js
 link_safe .osx.yml
+link_safe .zshrc
 
 mkdir_safe ".mjolnir/"
 link_safe .mjolnir/init.lua
@@ -32,22 +33,22 @@ link_safe Library/Application\ Support/pypoetry/config.toml
 
 python=(conda click django flask fastapi learning oscontrib packages scripts)
 for folder in "${python[@]}"; do
-  mkdir_safe "Code/python/${folder}"
+    mkdir_safe "Code/python/${folder}"
 done
 
 node=(vue react express oclif scripts learning oscontrib)
 for folder in "${node[@]}"; do
-  mkdir_safe "Code/node/${folder}"
+    mkdir_safe "Code/node/${folder}"
 done
 
 rust=(scripts learning oscontrib)
 for folder in "${rust[@]}"; do
-  mkdir_safe "Code/rust/${folder}"
+    mkdir_safe "Code/rust/${folder}"
 done
 
 ruby=(rails sinatra jekyll scripts learning oscontrib)
 for folder in "${ruby[@]}"; do
-  mkdir_safe "Code/ruby/${folder}"
+    mkdir_safe "Code/ruby/${folder}"
 done
 
 mkdir_safe ".ssh/"
