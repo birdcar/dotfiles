@@ -1,5 +1,13 @@
 #!/usr/bin/env bash
 
+########## System ##########
+alias ls="lsd"
+alias gitconf="git config --global -e"
+alias aliasconf="code --wait $DOTFILES_ROOT/lib/aliases"
+alias functionsconf="code --wait $DOTFILES_ROOT/lib/functions"
+alias globalsconf="code --wait $DOTFILES_ROOT/lib/functions"
+alias promptconf="code --wait $DOTFILES_ROOT/lib/prompt"
+alias zshconf="code --wait $DOTFILES_ROOT/.zshrc"
 
 ########## Git ##########
 alias gitconfig="code --wait --reuse-window ~/.gitconfig"
@@ -38,3 +46,4 @@ alias hca="h certs:auto -a"
 alias hcad="h certs:auto:decr -a"
 alias hsd="hs domains -a"
 alias hbuildpacks="h buildpacks -a"
+alias hs="heroku sudo"
