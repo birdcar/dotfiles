@@ -10,7 +10,7 @@ import warnings
 
 def get_extensions(package_file_path: Path) -> List[str]:
     """
-    Returns a list of npm packages to install globally using `npm i -g`
+    Returns a list of VS Code extensions to install
     """
     with open(package_file_path) as f:
         extensions = f.read().splitlines()
@@ -20,9 +20,9 @@ def get_extensions(package_file_path: Path) -> List[str]:
 
 def vscode_ext_install(extension: str):
     """
-    Attempt to install a specific node package globally
+    Attempt to install a specific VS Code extension
 
-    :param package: The name of an npm installable package
+    :param package: A VS Code extension ID
     """
     try:
         sub.run(
