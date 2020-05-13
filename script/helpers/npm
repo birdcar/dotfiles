@@ -24,10 +24,12 @@ def npm_global_install(package: str):
     :param package: The name of an npm installable package
     """
     try:
-        sub.run(["npm", "install", "-g", package], check=True, encoding='utf-8')
+        sub.run(["npm", "install", "-g", package], check=True, encoding="utf-8")
     except sub.CalledProcessError:
-        print(f"Problem encountered when installing {package}!\n",
-              "Review the output above or manually debug the issue later")
+        print(
+            f"Problem encountered when installing {package}!\n",
+            "Review the output above or manually debug the issue later",
+        )
         sys.exit(1)
 
 
@@ -39,7 +41,7 @@ if __name__ == "__main__":
         print(f"the DOTFILES_ROOT path ({DOTFILES_ROOT}) appears to be missing!")
         sys.exit(1)
 
-    packages = get_packages(DOTFILES_ROOT/'data'/'npm-global.txt')
+    packages = get_packages(DOTFILES_ROOT / "data" / "npm-global.txt")
 
     for package in packages:
         npm_global_install(package)
