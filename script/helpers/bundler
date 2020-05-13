@@ -2,10 +2,10 @@
 # Setup up Bundler
 
 # shellcheck source=lib/globals
-source "/$HOME/.dotfiles/lib/globals"
+source "$HOME/.dotfiles/lib/globals"
 
 # shellcheck source=lib/functions
-source "/$DOTFILES_ROOT/lib/functions"
+source "$DOTFILES_ROOT/lib/functions"
 
 mkdir_safe .bundle
 link_safe .bundle/config

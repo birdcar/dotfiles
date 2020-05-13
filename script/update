@@ -5,10 +5,10 @@
 set -e
 
 # shellcheck source=lib/globals
-source "/$HOME/.dotfiles/lib/globals"
+source "$HOME/.dotfiles/lib/globals"
 
 # shellcheck source=lib/functions
-source "/$DOTFILES_ROOT/lib/functions"
+source "$DOTFILES_ROOT/lib/functions"
 
 pushd $DOTFILES_ROOT
 
