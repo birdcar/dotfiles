@@ -1,24 +1,24 @@
-#!/usr/bin/env zsh
+#!/usr/bin/env bash
 # Configure $PATH to use Postgres.app's included command line tools
 
 function sudo_askpass() {
-  if [ -n "$SUDO_ASKPASS" ]; then
-    sudo --askpass "$@"
-  else
-    sudo "$@"
-  fi
+    if [ -n "$SUDO_ASKPASS" ]; then
+        sudo --askpass "$@"
+    else
+        sudo "$@"
+    fi
 }
 
 function postgres_path_append() {
-  echo "Adding Postgres.app's included command line tools to the \$PATH"
-  sudo_askpass mkdir -p /etc/paths.d && echo /Applications/Postgres.app/Contents/Versions/latest/bin | sudo_askpass tee /etc/paths.d/postgresapp
+    echo "Adding Postgres.app's included command line tools to the \$PATH"
+    sudo_askpass mkdir -p /etc/paths.d && echo /Applications/Postgres.app/Contents/Versions/latest/bin | sudo_askpass tee /etc/paths.d/postgresapp
 }
 
 if [ -z "$(brew cask list | grep postgres)" ]; then
-  echo "Postgres.app is not installed, attempting to install with `brew cask`"
-  brew cask install postgres && postgres_path_append
-elif [ ! -e "/etc/paths.d/postgresapp" ]; then
-  postgres_path_append
+    echo "Postgres.app is not installed, attempting to install with 'brew cask'"
+    brew cask install postgres && postgres_path_append
+    elif [ ! -e "/etc/paths.d/postgresapp" ]; then
+    postgres_path_append
 else
-  echo "Postgres has been configured appropriately"
+    echo "Postgres has been configured appropriately"
 fi

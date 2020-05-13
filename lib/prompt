@@ -1,21 +1,21 @@
-#!/usr/bin/env zsh
+#!/usr/bin/env bash
 
 # ORDER
 SPACESHIP_PROMPT_ORDER=(
-  time
-  user
-  host
-  pyenv
-  venv
-  conda
-  node
-  ruby
-  rust
-  line_sep
-  git
-  dir
-  line_sep
-  char
+    time
+    user
+    host
+    pyenv
+    venv
+    conda
+    node
+    ruby
+    rust
+    line_sep
+    git
+    dir
+    line_sep
+    char
 )
 
 # TIME

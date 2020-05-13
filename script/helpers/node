@@ -1,4 +1,4 @@
-#!/usr/bin/env zsh
+#!/usr/bin/env bash
 # Setup up nvm
 
 # shellcheck source=lib/globals
@@ -11,8 +11,8 @@ command -v nvm >/dev/null 2>&1 || { echo >&2 brew install nvm; source "$DOTFILES
 echo "Installing latest Node LTS: $(nvm ls-remote --lts | tail -1 )"
 
 if [[ -d "$HOME/.nvm" ]]; then
-  mkdir_safe ".nvm"
-  nvm install --lts
+    mkdir_safe ".nvm"
+    nvm install --lts
 fi
 
 echo "Installing global packages from ${DOTFILES_ROOT}/data/npm-global.txt"

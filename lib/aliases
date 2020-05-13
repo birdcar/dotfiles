@@ -1,4 +1,5 @@
-#!/usr/bin/env zsh
+#!/usr/bin/env bash
+
 
 ########## Git ##########
 alias gitconfig="code --wait --reuse-window ~/.gitconfig"

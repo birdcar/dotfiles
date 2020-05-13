@@ -1,4 +1,4 @@
-#!/usr/bin/env zsh
+#!/usr/bin/env bash
 # Setups up symlinks from .dotfiles to home directory
 
 # shellcheck source=lib/globals

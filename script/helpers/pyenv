@@ -1,4 +1,4 @@
-#!/usr/bin/env zsh
+#!/usr/bin/env bash
 # Setup up pyenv
 
 # shellcheck source=lib/globals
@@ -10,9 +10,9 @@ command -v pyenv >/dev/null 2>&1 || { echo >&2 brew install pyenv; eval "$(pyenv
 echo "Latest Python version is $(latest_py3)"
 
 if [ "$(pyenv global)" = "system" ]; then
-  pyenv install "$(latest_py3)"
-  pyenv install "$(latest_py2)"
-  pyenv global "$(latest_py3)" "$(latest_py2)"
-  pyenv rehash
+    pyenv install "$(latest_py3)"
+    pyenv install "$(latest_py2)"
+    pyenv global "$(latest_py3)" "$(latest_py2)"
+    pyenv rehash
 fi
 

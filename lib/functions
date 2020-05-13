@@ -1,75 +1,50 @@
-#!/usr/bin/env zsh
+#!/usr/bin/env bash
 # Functions shared between script/helpers and script/update
 
 # Custom global pip install
 function gpip() {
-  PIP_REQUIRE_VIRTUALENV="" pip "$@"
+    PIP_REQUIRE_VIRTUALENV="" pip "$@"
 }
-
-# Autoload `.nvmrc` where one exists
-autoload -U add-zsh-hook
-function load-nvmrc() {
-  local node_version="$(nvm version)"
-  local nvmrc_path="$(nvm_find_nvmrc)"
-
-  if [ -n "$nvmrc_path" ]; then
-    local nvmrc_node_version=$(nvm version "$(cat "${nvmrc_path}")")
-
-    if [ "$nvmrc_node_version" = "N/A" ]; then
-      nvm install
-    elif [ "$nvmrc_node_version" != "$node_version" ]; then
-      nvm use
-    fi
-  elif [ "$node_version" != "$(nvm version default)" ]; then
-    echo "Reverting to nvm default version"
-    nvm use default
-  fi
-}
-
-if [[ -d "$HOME/.nvm" ]]; then
-  add-zsh-hook chpwd load-nvmrc
-  load-nvmrc
-fi
 
 # Link a file if it doesn't already exist
 function link_safe() {
-  RELATIVE_PATH=$1
-  SOURCE_DIR=${2:-$HOME}
-  DESTINATION_DIR=${3:-$DOTFILES_ROOT}
-  SOURCE_PATH="$SOURCE_DIR/$RELATIVE_PATH"
-  DESTINATION_PATH="$DESTINATION_DIR/$RELATIVE_PATH"
-
-  if [[ ! -f "$SOURCE_PATH" ]] || [[ $(ls -l "$SOURCE_PATH" | awk '{print $11}') != "$DESTINATION_PATH" ]]; then
-    echo "Linking $SOURCE_PATH to $DESTINATION_PATH"
-    rm -f "$SOURCE_PATH"
-    ln -sf "$DESTINATION_PATH" "$SOURCE_PATH"
-  fi
+    RELATIVE_PATH=$1
+    SOURCE_DIR=${2:-$HOME}
+    DESTINATION_DIR=${3:-$DOTFILES_ROOT}
+    SOURCE_PATH="$SOURCE_DIR/$RELATIVE_PATH"
+    DESTINATION_PATH="$DESTINATION_DIR/$RELATIVE_PATH"
+    
+    if [[ ! -f "$SOURCE_PATH" ]] || [[ $(ls -l "$SOURCE_PATH" | awk '{print $11}') != "$DESTINATION_PATH" ]]; then
+        echo "Linking $SOURCE_PATH to $DESTINATION_PATH"
+        rm -f "$SOURCE_PATH"
+        ln -sf "$DESTINATION_PATH" "$SOURCE_PATH"
+    fi
 }
 
 function mkdir_safe() {
-  if [[ ! -d "$HOME/$1" ]]; then
-    echo "Creating $1 directory"
-    mkdir -p "$HOME/$1"
-  fi
+    if [[ ! -d "$HOME/$1" ]]; then
+        echo "Creating $1 directory"
+        mkdir -p "$HOME/$1"
+    fi
 }
 
 function latest_ruby() {
-  latest_ruby=$(rbenv install -l | grep -v - | tail -1 )
-  echo "$latest_ruby" | tr -d '[:space:]'
+    latest_ruby=$(rbenv install -l | grep -v - | tail -1 )
+    echo "$latest_ruby" | tr -d '[:space:]'
 }
 
 function latest_py3() {
-  latest_python=$(pyenv install -l | grep -v - | grep -v 'a' | grep -v 'rc' | tail -1 )
-  echo "$latest_python" | tr -d '[:space:]'
+    latest_python=$(pyenv install -l | grep -v - | grep -v 'a' | grep -v 'rc' | tail -1 )
+    echo "$latest_python" | tr -d '[:space:]'
 }
 
 function latest_py2() {
-  py2=$(pyenv install -l | grep -v - | grep '2.7.' | tail -1 )
-  echo "$py2" | tr -d '[:space:]'
+    py2=$(pyenv install -l | grep -v - | grep '2.7.' | tail -1 )
+    echo "$py2" | tr -d '[:space:]'
 }
 
 function pyenv-install() {
-  CFLAGS="-I$(brew --prefix openssl)/include -I$(brew --prefix readline)/include -I$(xcrun --show-sdk-path)/usr/include" \
-  LDFLAGS="-L$(brew --prefix openssl)/lib -L$(brew --prefix readline)/lib" \
-  pyenv install $@
+    CFLAGS="-I$(brew --prefix openssl)/include -I$(brew --prefix readline)/include -I$(xcrun --show-sdk-path)/usr/include" \
+    LDFLAGS="-L$(brew --prefix openssl)/lib -L$(brew --prefix readline)/lib" \
+    pyenv install "$@"
 }
