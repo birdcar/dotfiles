@@ -16,4 +16,5 @@ if [[ -d "$HOME/.nvm" ]]; then
 fi
 
 echo "Installing global packages from ${DOTFILES_ROOT}/data/npm-global.txt"
-script/helpers/npm
+
+"$DOTFILES_ROOT/script/helpers/npm"
