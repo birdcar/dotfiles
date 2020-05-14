@@ -182,12 +182,17 @@
     }
   },
   "ruby.format": "rubocop",
+  "screencastMode.onlyKeyboardShortcuts": true,
+  "screencastMode.verticalOffset": 10,
   "scss.lint.duplicateProperties": "error",
   "scss.lint.float": "warning",
   "scss.lint.idSelector": "warning",
   "scss.lint.ieHack": "warning",
   "scss.lint.important": "error",
   "scss.lint.zeroUnits": "warning",
+  "shellcheck.enable": true,
+  "shellcheck.ignoreFileSchemes": ["git", "gitfs"],
+  "shellcheck.run": "onSave",
   "terminal.integrated.cursorBlinking": true,
   "terminal.integrated.fontFamily": "FiraCode Nerd Font Mono",
   "terminal.integrated.fontSize": 16,
@@ -234,6 +239,14 @@
   "workbench.statusBar.visible": true,
   "yaml.format.enable": true,
   "yaml.format.singleQuote": true,
+  "zenMode.centerLayout": true,
+  "zenMode.fullScreen": true,
+  "zenMode.hideActivityBar": true,
+  "zenMode.hideLineNumbers": false,
+  "zenMode.hideStatusBar": false,
+  "zenMode.hideTabs": true,
+  "zenMode.restore": false,
+  "zenMode.silentNotifications": true,
   "[css]": {
     "editor.defaultFormatter": "esbenp.prettier-vscode"
   },
@@ -249,12 +262,12 @@
     "editor.formatOnSave": true,
     "editor.codeActionsOnSave": {
       // For ESLint
-      "source.fixAll.eslint": true,
+      "source.fixAll.eslint": true
     }
   },
   "[javascriptreact]": {
     "editor.wordWrap": "off",
-    "editor.defaultFormatter": "esbenp.prettier-vscode",
+    "editor.defaultFormatter": "esbenp.prettier-vscode"
   },
   "[json]": {
     "editor.defaultFormatter": "esbenp.prettier-vscode"
@@ -283,5 +296,5 @@
   },
   "[yaml]": {
     "editor.defaultFormatter": "redhat.vscode-yaml"
-  },
+  }
 }
