@@ -2,7 +2,7 @@
 # Set up Homebrew
 
 if ! brew bundle check --global --verbose; then
-    brew bundle install --global --verbose --force
+    brew bundle install --global --force --verbose
 fi
 
 # Delete zoom if I'm on my work computer
