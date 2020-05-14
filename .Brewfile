@@ -30,6 +30,8 @@ brew "dbus", restart_service: true
 brew "diff-so-fancy"
 # Tool for managing dock items
 brew "dockutil"
+# Command-line tool to interact with exercism.io
+brew "exercism"
 # Distributed revision control system
 brew "git"
 # Improved top (interactive process viewer)
