@@ -189,6 +189,7 @@
   "scss.lint.important": "error",
   "scss.lint.zeroUnits": "warning",
   "terminal.integrated.cursorBlinking": true,
+  "terminal.integrated.fontFamily": "FiraCode Nerd Font Mono",
   "terminal.integrated.fontSize": 16,
   "terminal.integrated.inheritEnv": false,
   "terminal.integrated.shellArgs.osx": ["-l"],
