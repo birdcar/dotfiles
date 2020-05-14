@@ -4,3 +4,8 @@
 if ! brew bundle check --global --verbose; then
     brew bundle install --global --verbose --force
 fi
+
+# Delete zoom if I'm on my work computer
+if [[ $(whoami) == "ncannariato" ]]; then
+    brew cask uninstall zoomus
+fi
