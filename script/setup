@@ -14,7 +14,7 @@ source "$HOME/.dotfiles/lib/globals"
 source "$DOTFILES_ROOT/lib/functions"
 
 # Proper order to run setup scripts in
-setups=(zsh symlinks homebrew dock python ruby node rust code postgres background-apps)
+setups=(zsh symlinks homebrew mjolnir dock python ruby node rust code postgres background-apps)
 
 for helper in "${setups[@]}"; do
     "$DOTFILES_ROOT/script/title" "Setting up $helper"
