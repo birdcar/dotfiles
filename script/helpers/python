@@ -9,6 +9,6 @@ source "$DOTFILES_ROOT/lib/functions"
 # Prevent Conda's base environment from activating by default
 conda config --set auto_activate_base false
 
-script/helpers/pyenv
-script/helpers/poetry
+"$DOTFILES_ROOT/script/helpers/pyenv"
+"$DOTFILES_ROOT/script/helpers/poetry"
 gpip install --upgrade --force-reinstall -r "$DOTFILES_ROOT/data/python-global.txt"

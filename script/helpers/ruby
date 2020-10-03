@@ -1,6 +1,6 @@
 #!/usr/bin/env bash
 # Set up Rbenv, bundler, and system gems
 
-script/helpers/rbenv
-script/helpers/bundler
+"$DOTFILES_ROOT/script/helpers/rbenv"
+"$DOTFILES_ROOT/script/helpers/bundler"
 gem update --system
