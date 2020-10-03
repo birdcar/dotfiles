@@ -12,6 +12,7 @@ link_safe .gitignore-global
 link_safe .Brewfile
 link_safe .mongorc.js
 link_safe .osx.yml
+link_safe .gemrc
 link_safe .zshrc
 
 mkdir_safe ".mjolnir/"
