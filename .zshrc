@@ -46,3 +46,4 @@ source $DOTFILES_ROOT/lib/functions
 
 # Load prompt
 source $DOTFILES_ROOT/lib/prompt
+
