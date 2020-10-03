@@ -11,6 +11,9 @@ else
     export EDITOR='code --reuse-window'
 fi
 
+########## PERSONAL ##########
+export PATH="$HOME/.local/bin:$PATH"
+
 ########## HOMEBREW ##########
 if brew command command-not-found-init >/dev/null 2>&1; then eval "$(brew command-not-found-init)"; fi
 
