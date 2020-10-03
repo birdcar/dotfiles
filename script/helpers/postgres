@@ -14,7 +14,7 @@ function postgres_path_append() {
     sudo_askpass mkdir -p /etc/paths.d && echo /Applications/Postgres.app/Contents/Versions/latest/bin | sudo_askpass tee /etc/paths.d/postgresapp
 }
 
-if [ -z "$(brew cask list | grep postgres)" ]; then
+if [ -z "$(brew list --cask | grep postgres)" ]; then
     echo "Postgres.app is not installed, attempting to install with 'brew cask'"
     brew cask install postgres && postgres_path_append
     elif [ ! -e "/etc/paths.d/postgresapp" ]; then
