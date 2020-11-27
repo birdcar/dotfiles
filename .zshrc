@@ -45,5 +45,5 @@ source $DOTFILES_ROOT/lib/aliases
 source $DOTFILES_ROOT/lib/functions
 
 # Load prompt
-source $DOTFILES_ROOT/lib/prompt
-
+# source $DOTFILES_ROOT/lib/prompt
+eval "$(starship init zsh)"
