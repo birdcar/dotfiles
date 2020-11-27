@@ -10,7 +10,7 @@
   "bracketPairColorizer.forceUniqueOpeningColor": true,
   "debug.toolBarLocation": "docked",
   "debug.console.fontSize": 16,
-  "editor.fontFamily": "FiraCode-Retina",
+  "editor.fontFamily": "FiraCode Nerd Font, FiraCode-Retina",
   "editor.fontLigatures": true,
   "editor.fontSize": 18,
   "editor.fontWeight": "400",
@@ -36,8 +36,10 @@
   "files.associations": {
     "**/*.html": "html",
     "**/templates/**/*.html": "django-html",
+    "**/templates/**/*.vue": "vue",
     "**/templates/**/*": "django-txt",
-    "**/requirements{/**,*}.{txt,in}": "pip-requirements"
+    "**/requirements{/**,*}.{txt,in}": "pip-requirements",
+    "*.vue": "vue"
   },
   "git.allowForcePush": true,
   "git.alwaysSignOff": false,
@@ -70,16 +72,15 @@
       "query": "is:open review-requested:${user}"
     }
   ],
-  "githubPullRequests.showInSCM": true,
   "githubPullRequests.telemetry.enabled": true,
   "gitmoji.additionalEmojis": [],
   "gitmoji.outputType": "code",
   "javascript.updateImportsOnFileMove.enabled": "always",
+  "jupyter.sendSelectionToInteractiveWindow": true,
   "liveshare.audio.startCallOnShare": true,
   "markdown.preview.fontSize": 16,
   "markdownlint.run": "onSave",
   "merge-conflict.autoNavigateNextConflict.enabled": true,
-  "npm.enableScriptExplorer": true,
   "npm.packageManager": "yarn",
   "path-intellisense.autoSlashAfterDirectory": true,
   "path-intellisense.showHiddenFiles": true,
@@ -136,7 +137,6 @@
   "prettier.proseWrap": "always",
   "prettier.singleQuote": false,
   "prettier.vueIndentScriptAndStyle": true,
-  "python.analysis.openFilesOnly": true,
   "python.analysis.diagnosticPublishDelay": 1000,
   "python.analysis.disabled": [],
   "python.analysis.errors": [
@@ -166,13 +166,13 @@
   ],
   "python.autoComplete.addBrackets": false,
   "python.condaPath": "conda",
-  "python.dataScience.sendSelectionToInteractiveWindow": true,
   "python.formatting.provider": "black",
-  "python.jediEnabled": false,
-  "python.languageServer": "Microsoft",
-  "python.linting.banditEnabled": true,
-  "python.linting.flake8Enabled": true,
-  "python.linting.mypyEnabled": true,
+  "python.languageServer": "Pylance",
+  "python.linting.banditEnabled": false,
+  "python.linting.flake8Enabled": false,
+  "python.linting.flake8Args": ["--max-line-length", "88"],
+  "python.linting.mypyEnabled": false,
+  "python.showStartPage": false,
   "python.sortImports.path": "isort",
   "ruby.useBundler": true,
   "ruby.useLanguageServer": true,
@@ -193,6 +193,7 @@
   "shellcheck.enable": true,
   "shellcheck.ignoreFileSchemes": ["git", "gitfs"],
   "shellcheck.run": "onSave",
+  "svg.preview.mode": "svg",
   "terminal.integrated.cursorBlinking": true,
   "terminal.integrated.fontFamily": "FiraCode Nerd Font Mono",
   "terminal.integrated.fontSize": 16,
@@ -225,6 +226,7 @@
   },
   "vetur.format.defaultFormatter.js": "prettier-eslint",
   "vetur.validation.template": true,
+  "window.zoomLevel": 0,
   "workbench.activityBar.visible": true,
   "workbench.colorCustomizations": {
     "activityBar.background": "#000C1D",
@@ -234,6 +236,12 @@
     "sideBar.foreground": "#8BADC1"
   },
   "workbench.colorTheme": "Night Owl",
+  "workbench.editorAssociations": [
+    {
+      "viewType": "jupyter.notebook.ipynb",
+      "filenamePattern": "*.ipynb"
+    }
+  ],
   "workbench.iconTheme": "material-icon-theme",
   "workbench.startupEditor": "none",
   "workbench.statusBar.visible": true,
