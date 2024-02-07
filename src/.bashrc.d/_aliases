@@ -1,0 +1,25 @@
+#!/usr/bin/env bash
+
+########## System ##########
+alias ls="lsd"
+
+########## Git ##########
+alias gitconfig="code --wait --reuse-window ~/.gitconfig"
+alias gs="git status"
+alias gad="git add ."
+alias gc="git commit"
+alias gcm="git commit -m"
+alias gl="git log --graph --pretty=format:'%Cred%h%Creset -%C(yellow)%d%Creset %s %Cgreen(%cr) %C(bold blue)<%an>%Creset' --abbrev-commit --date=relative"
+alias gp="git push"
+alias gd="git diff"
+alias gb="git browse"
+alias gi="add-gitignore"
+alias reset="git reset HEAD --hard; git clean -f -d"
+alias clean="git branch --merged | grep -v '\*' | xargs -n 1 git branch -d"
+alias branches="git branch -v"
+
+########## Dev ##########
+alias be="bundle exec"
+
+########## Plugins ##########
+eval "$(thefuck --alias)"

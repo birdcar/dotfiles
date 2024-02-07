@@ -1,36 +1,3 @@
-#!/usr/bin/env bash
+#! /usr/bin/env bash
 
-set -e
-
-# Bootstrap dotfiles
-if [[ ! -d "$HOME/.dotfiles" ]]; then
-    git clone https://github.com/nickcannariato/dotfiles .dotfiles
-fi
-
-# shellcheck source=lib/globals
-source "$HOME/.dotfiles/lib/globals"
-
-# shellcheck source=lib/functions
-source "$DOTFILES_ROOT/lib/functions"
-
-# Proper order to run setup scripts in
-setups=(zsh symlinks homebrew mjolnir dock python ruby node rust code postgres background-apps)
-
-for helper in "${setups[@]}"; do
-    "$DOTFILES_ROOT/script/title" "Setting up $helper"
-    "$DOTFILES_ROOT/script/helpers/$helper"
-done
-
-# create .hushlogin file in home directory
-touch "$HOME/.hushlogin"
-
-# update macOS plist files with my preferences
-sudo plister "$HOME/.osx.yml"
-
-# Remove strap.sh, which contains tokens
-rm -f "$HOME/Downloads/strap.sh"
-
-# Remove the auto-added spaceship prompt init to prevent double initialization
-git restore ../.zshrc
-
-script/title "Fin."
+# This will be where stow is run and the local env is prepared

@@ -1,5 +1,0 @@
-#!/usr/bin/env bash
-
-set -ex
-
-brew bundle cleanup --global --force

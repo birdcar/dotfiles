@@ -1,0 +1,6 @@
+#! /usr/bin/env bash
+
+# 1. Install `git` and any specific system packages using apt
+# 2. Check if the dotfiles repo has been cloned to `~/.files`, if not, clone it now
+# 3. Run stow on the `~/.files/src` directory
+# 4. Run the assorted language installers using git checkout

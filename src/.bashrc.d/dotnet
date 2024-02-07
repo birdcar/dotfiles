@@ -1,0 +1,7 @@
+#!/usr/bin/env bash
+
+DOTNET_TOOLS_PATH="$HOME/.dotnet/tools"
+
+if [[ -d "$DOTNET_TOOLS_PATH" ]]; then
+    export PATH="$DOTNET_TOOLS_PATH:$PATH"
+fi

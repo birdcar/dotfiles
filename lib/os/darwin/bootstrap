@@ -1,0 +1,8 @@
+#! /usr/bin/env bash
+
+# 1. Agree to xcode and install xcode command line tools
+# 2. Ensure that homebrew is installed
+# 3. cURL the global Brewfile from the repo and install it
+# 4. Check if the dotfiles repo has been cloned to `~/.files`, if not, clone it now
+# 5. Run stow on the `~/.files/src` directory
+# 6. Run the assorted language installers using git checkout

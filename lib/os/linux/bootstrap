@@ -1,0 +1,29 @@
+#! /usr/bin/env bash
+#
+# The Linux boostrap file is an alias that does a few specific checks
+# to verify what version of Linux specifically we're running, out of my
+# normal systems.
+#
+# The real code you likely want to see is going to be in one of the OS
+# specific directories.
+
+if [ "$(grep -Ei 'debian|buntu|pop' /etc/*release)" ]; then
+    # Install git
+    apt install git -y
+
+    # Clone birdcar/dotfiles
+    git clone https://github.com/birdcar/dotfiles "$HOME/.files"
+
+    # Do debian/ubuntu stuff with apt
+    "$HOME/.files/lib/os/debian/boostrap"
+
+elif [ "$(grep -Ei 'fedora' /etc/*release)" ]; then
+    # Ensure git is installed
+    dnf install git -y
+
+    # Clone birdcar/dotfiles
+    git clone https://github.com/birdcar/dotfiles "$HOME/.files"
+
+    # Do fedora stuff with dnf
+    "$HOME/.files/lib/os/fedora/bootstrap"
+fi

@@ -1,0 +1,8 @@
+#! /usr/bin/env bash
+
+CARGO_DIR="$HOME/.cargo"
+
+if [[ -f "$CARGO_DIR/env" ]]; then
+    # shellcheck source=/dev/null
+    source "$CARGO_DIR/env"
+fi

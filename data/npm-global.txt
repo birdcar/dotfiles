@@ -1,9 +1,0 @@
-@vue/cli
-@gridsome/cli
-tldr
-spoof
-fkill-cli
-alfred-fkill
-gitmoji-cli
-add-gitignore
-spaceship-prompt

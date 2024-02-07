@@ -1,0 +1,21 @@
+#! /usr/bin/env bash
+
+# This is where I'll be doing all the install things
+
+# 1. Get the current OS
+current_os="$(uname)"
+
+# 2. Switch case to run the appropriate script based on the OS in use (darwin, debian/ubuntu, rhel/fedora, etc)
+case $current_os in
+  Darwin*)
+    STATEMENTS
+    ;;
+
+  Linux)
+    STATEMENTS
+    ;;
+
+  *)
+    echo "What the hell kind of os you on?"
+    ;;
+esac

@@ -1,0 +1,16 @@
+#! /usr/bin/env bash
+
+export RBENV_ROOT="$HOME/.rbenv"
+
+if [[ -d "$RBENV_ROOT" ]]; then
+    # shellcheck source=/dev/null
+    eval "$("$RBENV_ROOT"/bin/rbenv init - bash)"
+fi
+
+function rails {
+    if [[ -f "$(pwd)/Gemfile" && -d "$(pwd)/app" ]]; then
+        bundle exec rails "$@"
+    else
+        gem exec rails "$@"
+    fi
+}

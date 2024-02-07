@@ -1,0 +1,52 @@
+#! /usr/bin/env bash
+
+export PYENV_ROOT="$HOME/.pyenv"
+
+# Disable stdout/stderr buffering, equivalent to -u
+export PYTHONUNBUFFERED=true
+
+# Don't write .pyc files, equivalent to -B
+export PYTHONDONTWRITEBYTECODE=true
+
+# Require a python virtual environment for pip to install things
+# TODO: Make a PR to the pyenv default packages repository to support this
+# export PIP_REQUIRE_VIRTUALENV=true
+
+# Poetry: Set the max number of workers to 'num_cpu_cores + 4'
+export POETRY_INSTALLER_MAX_WORKERS=16
+
+# Poetry: Use a more modern and faster method for package installation.
+export POETRY_INSTALLER_MODERN_INSTALLATION=true
+
+# Poetry: When set this configuration allows users to configure package distribution format policy for all or specific packages.
+#   :all: or true        -> Disallow binary distributions for all packages.
+#   :none: or false      -> Allow binary distributions for all packages.
+#   package[,package,..] -> Disallow binary distributions for specified packages only.
+export POETRY_INSTALLER_NO_BINARY=false
+
+# Poetry: Use parallel execution when using the new (>=1.1.0) installer.
+export POETRY_INSTALLER_PARALLEL=true
+
+# Poetry: Create a new virtual environment if one doesn’t already exist.
+#
+# If set to false, Poetry will not create a new virtual environment.
+# If it detects an already enabled virtual environment or an existing one in
+# {cache-dir}/virtualenvs or {project-dir}/.venv it will install dependencies
+# into them, otherwise it will install dependencies into the systems python environment.
+export POETRY_VIRTUALENVS_CREATE=true
+
+# Poetry: Create the virtualenv inside the project’s root directory.
+export POETRY_VIRTUALENVS_IN_PROJECT=true
+
+# Custom global pip install
+function gpip() {
+	PIP_REQUIRE_VIRTUALENV="" pip "$@"
+}
+
+if [[ -d "$PYENV_ROOT" ]]; then
+	# Add Pyenv to the path
+	export PATH="$PYENV_ROOT/bin:$PATH"
+
+	# Initialize Pyenv in the shell
+	eval "$(pyenv init -)"
+fi
