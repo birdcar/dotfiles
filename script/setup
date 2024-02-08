@@ -1,3 +1,33 @@
 #! /usr/bin/env bash
 
-# This will be where stow is run and the local env is prepared
+# Function to backup home files
+backup () {
+    cp -R "$1" "$1_$(date +%Y%m%d_%H%M%S)"
+}
+
+#!/bin/bash
+
+# Define the source directory, relative to this script's location
+SRC_DIR="$(dirname "$0")/../src"
+
+# Loop over every file and directory in the src directory
+find "$SRC_DIR" -mindepth 1 -type f -o -type d | while read -r src_path; do
+    # Remove the SRC_DIR part of the path to get the relative path
+    relative_path="${src_path#"$SRC_DIR"/}"
+
+    # Replace 'dot-' prefix with '.' for checking in the HOME directory
+    target_relative_path="${relative_path//dot-/\.}"
+
+    # Define the target path in the HOME directory
+    target_path="$HOME/$target_relative_path"
+
+    # Check if the target path exists
+    if [ -e "$target_path" ]; then
+        echo "Exists: $target_path"
+        echo "Backing up file"
+        backup "$target_path"
+    else
+        continue
+    fi
+done
+
